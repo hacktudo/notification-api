@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS  user;
-CREATE TABLE user (
+DROP TABLE IF EXISTS  person;
+CREATE TABLE person (
     id SERIAL PRIMARY KEY,
     "name" VARCHAR(511),
     email VARCHAR(255),
@@ -12,18 +12,18 @@ CREATE TABLE "region" (
     "location" point
 );
 
-DROP TABLE IF EXISTS  user_region;
-CREATE TABLE user_region(
+DROP TABLE IF EXISTS  person_region;
+CREATE TABLE person_region(
     id SERIAL PRIMARY KEY,
-    user_id INTEGER NOT NULL,
+    person_id INTEGER NOT NULL,
     region_id INTEGER NOT NULL,
-    FOREIGN KEY(user_id) REFERENCES user(id),
+    FOREIGN KEY(person_id) REFERENCES person(id),
     FOREIGN KEY(region_id) REFERENCES region(id)
 );
 
 CREATE TABLE IF NOT EXISTS "event" (
     id SERIAL PRIMARY KEY,
-    "name" VARCHAR(255),varchar
+    "name" VARCHAR(255),
     "emergency" BOOLEAN NOT NULL,
     icon TEXT
 );
@@ -35,14 +35,14 @@ CREATE TABLE iF NOT EXISTS "ocurrency" (
     "data" json NOT NULL
 );
 
-INSERT INTO user(name, email, rating) VALUES 
+INSERT INTO person(name, email, rating) VALUES 
 (
-    "user_1",
-    "user1@gmail.com",
+    'person_1',
+    'person1@gmail.com',
     10
 ),
 (
-    "user_2",
-    "user2@gmail.com",
+    'person_2',
+    'person2@gmail.com',
     9
 );

@@ -3,7 +3,7 @@ CREATE TABLE person (
     id SERIAL PRIMARY KEY,
     "name" VARCHAR(511),
     email VARCHAR(255),
-    rating INTEGER
+    rating DOUBLE PRECISION
 );
 
 DROP TABLE IF EXISTS "region";
@@ -31,10 +31,13 @@ CREATE TABLE IF NOT EXISTS "event" (
 
 CREATE TABLE iF NOT EXISTS "ocurrency" (
     id SERIAL PRIMARY KEY,
-    event_id INTEGER NOT NULL,
+    person_id integer references person(id),
+    event_id integer references event(id),
     "latitude" DOUBLE PRECISION NOT NULL,
     "longitude" DOUBLE PRECISION NOT NULL,
-    "data" json NOT NULL
+    status varchar(255),
+    create_at timestamp ,
+    "data" json
 );
 
 INSERT INTO person(name, email, rating) VALUES 

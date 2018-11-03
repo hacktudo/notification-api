@@ -49,8 +49,9 @@ INSERT INTO person(name, email, rating) VALUES
     9
 );
 
-INSERT INTO region(location) VALUES(
-    '(-22.906847,-43.172897)'
+INSERT INTO region(latitude, longitude) VALUES(
+    -22.906847,
+    -43.172897
 );
 
 insert into event(name, emergency, icon)

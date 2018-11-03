@@ -1,0 +1,25 @@
+server:
+  port: 8000
+  undertow.accesslog.enabled: false
+  servlet:
+    contextPath: /hacktudo
+
+spring:
+  jpa:
+    properties:
+      hibernate:
+        temp.use_jdbc_metadata_defaults: false
+        hbm2ddl.auto: validate
+        show_sql: false
+  datasource:
+    url: jdbc:postgresql://172.17.0.1:5432/postgres
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+    validationQuery: SELECT 1
+    testOnBorrow: true
+    jpa:
+      properties.hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+    hikari:
+      maximum-pool-size: 10
+      connection-test-query: SELECT 1

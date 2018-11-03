@@ -9,7 +9,8 @@ CREATE TABLE person (
 DROP TABLE IF EXISTS "region";
 CREATE TABLE "region" (
     id SERIAL PRIMARY KEY,
-    "location" point
+    "latitude" DOUBLE PRECISION NOT NULL,
+    "longitude" DOUBLE PRECISION NOT NULL
 );
 
 DROP TABLE IF EXISTS  person_region;
@@ -31,7 +32,8 @@ CREATE TABLE IF NOT EXISTS "event" (
 CREATE TABLE iF NOT EXISTS "ocurrency" (
     id SERIAL PRIMARY KEY,
     event_id INTEGER NOT NULL,
-    "location" point NOT NULL,
+    "latitude" DOUBLE PRECISION NOT NULL,
+    "longitude" DOUBLE PRECISION NOT NULL,
     "data" json NOT NULL
 );
 
@@ -45,6 +47,10 @@ INSERT INTO person(name, email, rating) VALUES
     'person_2',
     'person2@gmail.com',
     9
+);
+
+INSERT INTO region(location) VALUES(
+    '(-22.906847,-43.172897)'
 );
 
 insert into event(name, emergency, icon)
